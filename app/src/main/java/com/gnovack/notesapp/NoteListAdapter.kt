@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class NoteListAdapter(
-    private val myDataset: Array<Notes>,
+    private val myDataset: ArrayList<Notes>,
     private val onItemClicked: (Notes) -> Unit
 ) : RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>() {
 
@@ -32,7 +32,7 @@ class NoteListAdapter(
         fun bind(note: Notes) {
             titleView?.text = note.title
             descView?.text = note.desc
-            dateView?.text = note.date.toString()
+            dateView?.text = note.date
             numView?.text = "#${note.id}"
         }
     }

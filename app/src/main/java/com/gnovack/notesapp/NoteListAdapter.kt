@@ -1,5 +1,6 @@
 package com.gnovack.notesapp
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,9 +30,15 @@ class NoteListAdapter(
             }
         }
 
+        @SuppressLint("SetTextI18n")
         fun bind(note: Notes) {
+            val content = note.content.replace("\n", "")
+            if (content.length > 50)
+                descView?.text = "${content.substring(0, 20)}..."
+            else
+                descView?.text = content
+
             titleView?.text = note.title
-            descView?.text = note.desc
             dateView?.text = note.date
             numView?.text = "#${note.id}"
         }

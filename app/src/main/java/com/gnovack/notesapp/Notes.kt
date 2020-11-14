@@ -1,5 +1,6 @@
 package com.gnovack.notesapp
 
-data class Notes(val title: String, val desc: String, val date: String, val id: Int) {
-    lateinit var content: String
-}
+import java.io.Serializable
+
+data class Notes(val title: String, val content: String, val date: String, var id: Int) :
+    Serializable
